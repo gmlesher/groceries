@@ -1,0 +1,2 @@
+# groceries
+ inventory groceries
