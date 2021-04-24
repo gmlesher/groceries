@@ -1,0 +1,31 @@
+{% extends "inventory/base.html" %}
+
+{% block page_header %}
+<div>
+  <h1 class="text-center">Grocery Inventory</h1>
+  <p class="text-center w-50 mx-auto">Make your own inventory of grocery items at home so that you don't duplicate your purchases when buying items at the store. Whenever you use an item, remove it from the inventory. When you buy, add it to the inventory.</p>
+</div>
+
+{% endblock page_header %}
+
+{% block content %}
+<div>
+  {% if user.is_authenticated %}
+  <div class="text-center">
+    <h3 class="my-3">Welcome, {{ user.username }}</h3>
+    <a class="btn btn-lg btn-info my-3" href="{% url 'inventory:inventory' %}" role="button">See Inventory &raquo;</a>
+  </div>
+    
+
+  {% else %}
+    <div class="text-center">
+      <h3 class="my-3">Login or Register Here</h3>
+      <a class="btn btn-lg btn-info" href="{% url 'accounts:login' %}" role="button">Log in &raquo;</a>
+      <a class="btn btn-lg btn-info" href="{% url 'accounts:register' %}" role="button">Register &raquo;</a>
+    </div>
+      
+  {% endif %}
+</div>
+
+{% endblock content %}
+

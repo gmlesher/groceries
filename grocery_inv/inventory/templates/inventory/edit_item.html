@@ -1,0 +1,22 @@
+{% extends "inventory/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_header %}
+  <h2 class="text-center">Edit {{ item.name }}:</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <div class="w-25 mx-auto">
+    <form action="{% url 'inventory:edit_item' item.pk %}" method='post'>
+      {% csrf_token %}
+
+      {{ form|crispy }}
+
+      <button name="submit" class="btn btn-info my-3">Edit Item</button>
+
+    <input type="hidden" name="next" value="{% url 'inventory:edit_item' item.pk %}" />
+    </form>
+  </div>
+    
+
+{% endblock content %}

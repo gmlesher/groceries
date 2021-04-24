@@ -1,0 +1,15 @@
+{% extends "inventory/base.html" %}
+
+{% block page_header %}
+<h2 class="text-center">Logged Out</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <div class="text-center">
+    <p>You have been logged out. Thank you for visiting!</p>
+
+    <a class="btn btn-info my-3" href="{% url 'accounts:login' %}" role="button">Log in</a>
+  </div>
+    
+
+{% endblock content %}
